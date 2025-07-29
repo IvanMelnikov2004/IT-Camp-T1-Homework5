@@ -1,0 +1,37 @@
+{
+  "realm": "demo-realm",
+  "enabled": true,
+  "sslRequired": "external",
+  "clients": [
+    {
+      "clientId": "demo-client",
+      "enabled": true,
+      "protocol": "openid-connect",
+      "publicClient": false,
+      "secret": "<CLIENT_SECRET>",
+      "redirectUris": ["*"],
+      "attributes": {
+        "id.token.signed.response.alg": "RS256",
+        "token.encryption.alg": "RSA-OAEP",
+        "token.encryption.enc": "A256GCM",
+        "id.token.encrypted.response.alg": "RSA-OAEP",
+        "id.token.encrypted.response.enc": "A256GCM"
+      }
+    }
+  ],
+  "roles": {
+    "realm": [
+      { "name": "user" }
+    ]
+  },
+  "users": [
+    {
+      "username": "testuser",
+      "enabled": true,
+      "credentials": [
+        { "type": "password", "value": "test123", "temporary": false }
+      ],
+      "realmRoles": ["user"]
+    }
+  ]
+}
